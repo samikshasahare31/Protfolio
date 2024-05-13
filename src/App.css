@@ -48,9 +48,6 @@
   background-position: -100px;
   background-image: linear-gradient(90deg,rgb(243, 124, 144),rgb(219, 53, 235),rgb(235, 82, 141), rgb(248, 198, 223),rgb(223, 75, 82) )
 }
-.HomeContainer{
-  margin: 4rem;
-}
 
 .nav-link a{
   color: aliceblue;
@@ -95,6 +92,7 @@
   animation-name: homeImg;
   animation-duration: 2.6s;
   animation-iteration-count: infinite;
+  min-width: 40%;
 }
 .picImg{
   height: 400px;
@@ -102,7 +100,11 @@
   object-fit: cover;
   border-radius: 8px;
   margin: auto;
-  box-shadow: white 0px 0px 12px, red 0px 0px 12px;
+  animation-timing-function: ease-in-out;
+  animation-name: homeImg;
+  animation-duration: 2.6s;
+  animation-iteration-count: infinite;
+  /* box-shadow: white 0px 0px 12px, red 0px 0px 12px; */
 }
 @keyframes homeImg {
   0% {
@@ -272,9 +274,6 @@
 
 }
 
-.HomeContainer{
-  margin-top: 2rem;
-}
 .homep{
   margin-top: 2rem;
   align-items: center;
@@ -337,6 +336,38 @@ main{
 .icon, .link_text{
   font-size: 20px;
 }
+.progress {
+  height: 20px; /* Adjust height as needed */
+  background-color: #ddd;
+  border-radius: 5px; /* Add rounded corners */
+}
+
+.progress-bar {
+  height: 100%; /* Match container height */
+  background-color: #007bff; /* Adjust color */
+  transition: width 1s ease-in-out; /* Animation properties */
+}
+
+.SkillsContainer{
+  background-color:#f3f3f3;
+    border-radius: 1%;
+    margin: 2%;
+
+}
+
+.progressContainer{
+  background-color: #ffffff;
+  padding: 2%;
+  border-radius: 2%;
+  margin: 2%;
+}
+.DataContainer{
+  background-color: #ffffff;
+  padding: 2%;
+  border-radius: 2%;
+  margin: 2%;
+}
+
 .project {
   padding: 80px 0;
   position: relative;
@@ -344,8 +375,8 @@ main{
   border-radius: 2%;
 }
 .project h2 {
-	font-size: 45px;
-	font-weight: 700;
+  font-size: 45px;
+  font-weight: 700;
   text-align: center;
 }
 .project p {
@@ -428,6 +459,7 @@ main{
 }
 .proj-imgbx:hover::before {
   height: 100%;
+  width: 100%;
 }
 .proj-txtx {
   position: absolute;
@@ -474,8 +506,8 @@ main{
   width: 92%;
 }
 .contact h2 {
-	font-size: 45px;
-	font-weight: 700;
+  font-size: 45px;
+  font-weight: 700;
   margin-bottom: 30px;
 }
 .contact form input, .contact form textarea {
@@ -536,19 +568,26 @@ main{
 .contact form button:hover::before {
   width: 100%;
 }
-.about-container{
-  background-color: #f3eded;
-  border: 2%;
+.AboutDataContainer{
+  background-color: #f3f3f3;;
+  margin: 2%;
+  border-radius: 1%;
 }
-.experience-container{
-  background-color: #f3eded;
-  border: 2%;
+.about-container{
+  height: 100%;
+  background-color: #ffffff;
+  border-radius:  2%;
+
+}
+.Data-container{
+  background-color: #ffffff;
+  border-radius:  2%;
 }
 .education-container{
-  background-color: #f3eded;
-  border: 2%;
+  background-color: #ffffff;
+    border: 2%;
 }
 .future-container{
-  background-color: #f3eded;
+  background-color: #ffffff;
   border: 2%;
 }

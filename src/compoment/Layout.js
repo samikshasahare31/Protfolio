@@ -1,41 +1,39 @@
-import React from 'react'
+import React from "react";
+import Nav from "react-bootstrap/Nav";
 import { Outlet, Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
-
+import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 const Layout = () => {
   return (
-
-    <div>
-    {/* <Navbar bg="dark" data-bs-theme="dark">
-    <Nav className="me-auto">
-    <Container>
-        <Nav className="me-auto">
-        <Nav.Link>
-          <Link to="/">Home</Link>
-        </Nav.Link>
-        <Nav.Link>
-          <Link to="/skill">Skill</Link>
-        </Nav.Link>
-        <Nav.Link>
-          <Link to="/project">Project</Link>
-        </Nav.Link>
-        <Nav.Link>
-          <Link to="/about">About</Link>
-        </Nav.Link>
-        <Nav.Link>
-          <Link to="/contact">Contact</Link>
-        </Nav.Link>
+    <div className="text-dark">
+      <Navbar bg="dark" data-bs-theme="dark" >
+      <Nav className="me-auto">
+      <Container>
+          <Nav className="me-auto">
+          <Nav.Link>
+            <Link to="/">Home</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/skills">Skills</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/projects">Projects</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/about">About</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/contact">Contact</Link>
+          </Nav.Link>
+        </Nav>
+        </Container>
       </Nav>
-      </Container>
-    </Nav>
-    </Navbar> */}
-    <Outlet />
+      </Navbar>
+      <Outlet />
 
-  </div>
-  )
-}
+    </div>
+  );
+};
 
 export default Layout;

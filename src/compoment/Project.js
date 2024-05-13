@@ -1,15 +1,18 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 // import { ProjectCard } from "./ProjectCard";
-import project1 from "../assessts/project1.jpg";
-import project2 from "../assessts/project2.jpg";
-import project3 from "../assessts/project3.jpg";
+import { ProjectCard } from "./ProjectCard.js";
+import TrackVisibility from 'react-on-screen';
+import 'animate.css';
+
+const project1 =  "https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=360 360w, https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=400 400w, https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=450 450w, https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=576 576w, https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=768 768w";
+const project2 =  "https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=360 360w, https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=400 400w, https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=450 450w, https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=576 576w, https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=768 768w";
+const project3 =  "https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=360 360w, https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=400 400w, https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=450 450w, https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=576 576w, https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg?w=768 768w";
+// import project2 from "../assessts/project2.jpg";
+// import project3 from "../assessts/project3.jpg";
 
 // import colorSharp2 from "../assets/img/color-sharp2.png";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
-import { ProjectCard } from "./ProjectCard";
 
-export const Project = () => {
+const Projects = () => {
 
   const projects = [
     {
@@ -47,7 +50,7 @@ export const Project = () => {
   return (
     <section className="project" id="projects">
       <Container>
-        <Row>
+        <Row className="about-container">
           <Col size={12}>
             <TrackVisibility>
               {({ isVisible }) =>
@@ -74,3 +77,4 @@ export const Project = () => {
     </section>
   )
 }
+export default Projects

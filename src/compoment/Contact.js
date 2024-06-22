@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../assessts/contact-img.svg";
+import contactImg from "../assessts/flat-design-illustration-customer-support_23-2148887720 (1).avif";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
-export const Contact = () => {
+const Contact = () => {
   const formInitialDetails = {
     firstName: '',
     lastName: '',
@@ -24,40 +24,69 @@ export const Contact = () => {
   }
 
   const handleSubmit = async (e) => {
+console.log("formDetails",formDetails);
     e.preventDefault();
     setButtonText("Sending...");
-    let response = await fetch("http://localhost:5000/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(formDetails),
-    });
-    setButtonText("Send");
-    let result = await response.json();
-    setFormDetails(formInitialDetails);
-    if (result.code == 200) {
-      setStatus({ succes: true, message: 'Message sent successfully'});
-    } else {
-      setStatus({ succes: false, message: 'Something went wrong, please try again later.'});
+   
+    fetch('http://localhost:5000/send-email', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    to: 'rutujasahare2018@gmail.com',
+    subject: 'protfolio user',
+    text: JSON.stringify(formDetails),
+    // attachmentFilename: 'api.txt',
+    // attachmentPath: '/home/lnv-166/BackUp/JS_CODES/api.txt'
+  })
+})
+  .then(response => {
+    if (response.ok) {
+      console.log("🚀 ~ handleSubmit ~ response:", response)
+      return response.text();
     }
+    throw new Error('Network response was not ok.');
+  })
+  .then(data => {
+    console.log(data); // Output: Email sent successfully!
+  })
+  .catch(error => {
+    console.error('There was a problem with your fetch operation:', error.message);
+  });
+
+    // let response = await fetch("http://localhost:5000/contact", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json;charset=utf-8",
+    //   },
+    //   body: JSON.stringify(formDetails),
+    // });
+    // setButtonText("Send");
+    // let result = await response.json();
+    // setFormDetails(formInitialDetails);
+    // if (result.code == 200) {
+    //   setStatus({ succes: true, message: 'Message sent successfully'});
+    // } else {
+    //   setStatus({ succes: false, message: 'Something went wrong, please try again later.'});
+    // }
   };
 
   return (
-    <section className="contact" id="connect">
-      <Container>
+    <section className="contact justify-content-around" id="connect">
+      <Container className="ContainerContact p-4">
         <Row className="align-items-center">
           <Col size={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) =>
-                <img className={isVisible ? "animate__animated animate__zoomIn" : ""} src={contactImg} alt="Contact Us"/>
+                <img className={isVisible && window?.innerWidth>500 ? "animate__animated animate__zoomIn" : ""} src={contactImg} alt="Contact Us"/>
               }
             </TrackVisibility>
           </Col>
           <Col size={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                <div className={isVisible && window?.innerWidth>500 ? "animate__animated animate__fadeIn ContactInput p-4" : ""}>
                 <h2>Get In Touch</h2>
                 <form onSubmit={handleSubmit}>
                   <Row>
@@ -75,7 +104,7 @@ export const Contact = () => {
                     </Col>
                     <Col size={12} className="px-1">
                       <textarea rows="6" value={formDetails.message} placeholder="Message" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
-                      <button type="submit"><span>{buttonText}</span></button>
+                      <button className="rounded-3" type="submit"><span>{buttonText}</span></button>
                     </Col>
                     {
                       status.message &&
@@ -93,3 +122,4 @@ export const Contact = () => {
     </section>
   )
 }
+export default Contact;

@@ -9,7 +9,7 @@ import Skills from './compoment/Skills';
 import About from './compoment/About';
 import Sidebar from './compoment/Sidebar';
 import Projects from './compoment/Project';
-import { Contact } from './compoment/Contact';
+import Contact from './compoment/Contact';
 
 
 function App() {
